@@ -16,7 +16,7 @@ function drawApple(){
 
 // Schlange startet in 1, 1
 function drawSnake(){
-	snake = 0;
+	snake = 14;
 	document.getElementById(snake).style.backgroundColor = "orange"; 
 }
 
@@ -44,7 +44,7 @@ document.onkeydown = function (event) {
 	}
 	else if(event.keyCode == 38) {
 		document.getElementById(snake).style.backgroundColor = "green"; 
-		snake = snake + 10
+		snake = snake - 10
 		document.getElementById(snake).style.backgroundColor = "orange"; 
 	}
 	else if(event.keyCode == 39) {
@@ -54,7 +54,7 @@ document.onkeydown = function (event) {
 	}
 	else if(event.keyCode == 40) {
 		document.getElementById(snake).style.backgroundColor = "green"; 
-		snake = snake - 10 
+		snake = snake + 10 
 		document.getElementById(snake).style.backgroundColor = "orange"; 
 	}
 }

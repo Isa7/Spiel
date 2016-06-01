@@ -32,9 +32,20 @@ function start(){
 
 //Variablen für Tastensteuerung
 
-var Key = {
-	LEFT: 37,
-	UP: 38,
-	RIGHT: 39,
-	DOWN: 40,
-};
+Spiel.onkeydown = function (event) {
+	if (event.keyCode == 37) {
+		
+	}
+	else if (event.keyCode == 38) {
+		
+	}
+	else if (event.keyCode == 39) {
+		
+	}
+	else if (event.keyCode == 40) {
+		
+	}
+	else {
+		
+	}
+}

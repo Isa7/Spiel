@@ -27,9 +27,9 @@ function start(){
 }
 	
 // Tasten abfragen und Schlange steuern
-<<<<<<< HEAD
+
 // Kontakt mit Apfel erkennen
-=======
+
 // Kontakt mit Apfel erkennen
 
 
@@ -37,16 +37,27 @@ function start(){
 
 document.onkeydown = function (event) {
 	if (event.keyCode == 37) {
-		alert ("links gedrückt");
+		document.getElementById(snake).style.backgroundColor = "green"; 
+		snake = snake -1 
+		document.getElementById(snake).style.backgroundColor = "orange"; 
+		
 	}
 	else if(event.keyCode == 38) {
-		alert ("hoch gedrückt");
+		document.getElementById(snake).style.backgroundColor = "green"; 
+		snake = snake + 10
+		document.getElementById(snake).style.backgroundColor = "orange"; 
 	}
 	else if(event.keyCode == 39) {
-		alert ("rechts gedrückt");
+		document.getElementById(snake).style.backgroundColor = "green"; 
+		snake = snake + 1
+		document.getElementById(snake).style.backgroundColor = "orange"; 
 	}
 	else if(event.keyCode == 40) {
-		alert ("runter gedrückt");
+		document.getElementById(snake).style.backgroundColor = "green"; 
+		snake = snake - 10 
+		document.getElementById(snake).style.backgroundColor = "orange"; 
 	}
 }
->>>>>>> origin/master
+
+
+

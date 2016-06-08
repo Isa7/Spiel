@@ -9,9 +9,6 @@ function drawScore(){
 	document.getElementById('score').innerHTML = "Spielstand: " + score; 
 }
 
-
-//for-Schleife über alle Tabellenelemente: weiß machen
-
 // Apfel malen
 function drawApple(){
 	apple = Math.floor(Math.random()*99);
@@ -24,15 +21,18 @@ function drawSnake(){
 	document.getElementById(snake).style.backgroundColor = "orange"; 
 }
 
+//Kollision mit Apfel
 function kollisionserkennung(){
 	if (snake === apple){
-		alert ("Kollision");
-		//neuen Apfel malen
-		drawApple();
-		//Schlange wird länger
-	    //Punktestand erhöht sich um 1 Punkt
+		//Punktestand erhöht sich um 1 Punkt
 		drawScore();
 	
+	    //Schlange wird länger
+	
+	    //neuen Apfel malen
+		drawApple();
+	
+		
 	}
 }
 
@@ -46,15 +46,8 @@ function start(){
 }
 	
 // Tasten abfragen und Schlange steuern
-
-// Kontakt mit Apfel erkennen
-
-// Kontakt mit Apfel erkennen
-
-
-//Variablen für Tastensteuerung
-
 document.onkeydown = function (event) {
+	//Links
 	if (event.keyCode == 37) {
 		document.getElementById(snake).style.backgroundColor = "green"; 
 		snake = snake -1 
@@ -62,18 +55,21 @@ document.onkeydown = function (event) {
 		kollisionserkennung();
 		
 	}
+	//Hoch
 	else if(event.keyCode == 38) {
 		document.getElementById(snake).style.backgroundColor = "green"; 
 		snake = snake - 10
 		document.getElementById(snake).style.backgroundColor = "orange"; 
 		kollisionserkennung();
 	}
+	//Rechts
 	else if(event.keyCode == 39) {
 		document.getElementById(snake).style.backgroundColor = "green"; 
 		snake = snake + 1
 		document.getElementById(snake).style.backgroundColor = "orange"; 
 		kollisionserkennung();
 	}
+	//Runter
 	else if(event.keyCode == 40) {
 		document.getElementById(snake).style.backgroundColor = "green"; 
 		snake = snake + 10 

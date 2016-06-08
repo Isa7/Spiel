@@ -1,6 +1,14 @@
 //Variablen
 var apple;
 var snake;
+var score = -1;
+
+//Spielstand anzeigen
+function drawScore(){
+	score = score + 1;
+	document.getElementById('score').innerHTML = "Spielstand: " + score; 
+}
+
 
 //for-Schleife über alle Tabellenelemente: weiß machen
 
@@ -23,14 +31,18 @@ function kollisionserkennung(){
 		drawApple();
 		//Schlange wird länger
 	    //Punktestand erhöht sich um 1 Punkt
+		drawScore();
+	
 	}
 }
 
 //Spielstart
 function start(){
+	drawScore();{
 	drawApple();
 	drawSnake();
 	kollisionserkennung();
+	}
 }
 	
 // Tasten abfragen und Schlange steuern

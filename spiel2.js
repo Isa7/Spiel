@@ -2,6 +2,11 @@
 var apple;
 var snake;
 var score = 0;
+var timer;
+var richtung;
+var aktuelle_Pos = snake;
+var ende = false;
+var tastenpruefung = false;
 
 //Spielstand anzeigen
 function drawScore(){
@@ -10,94 +15,6 @@ function drawScore(){
 
 // Apfel malen
 function drawApple(){
-	apple = Math.floor(Math.random()*99);
-	document.getElementById(apple).style.backgroundColor = "red"; 
-}
-
-// Schlange startet in 1, 1
-function drawSnake(){
-	snake = 14;
-	document.getElementById(snake).style.backgroundColor = "orange"; 
-}
-
-//Kollision mit Apfel
-function kollisionserkennung(){
-	if (snake === apple){
-		//Punktestand erhöht sich um 1 Punkt
-	
-		drawScore(score++);
-	
-	    //Schlange wird länger
-	
-	    //neuen Apfel malen
-		drawApple();
-	
-		
-	}
-}
-
-//Spielstart
-function start(){
-	drawScore();{
-	drawApple();
-	drawSnake();
-	kollisionserkennung();
-	}
-}
-	
-// Tasten abfragen und Schlange steuern
-document.onkeydown = function (event) {
-	//Links
-	if (event.keyCode == 37) {
-		document.getElementById(snake).style.backgroundColor = "green"; 
-		snake = snake -1 
-		document.getElementById(snake).style.backgroundColor = "orange"; 
-		kollisionserkennung();
-		
-	}
-	//Hoch
-	else if(event.keyCode == 38) {
-		document.getElementById(snake).style.backgroundColor = "green"; 
-		snake = snake - 10
-		document.getElementById(snake).style.backgroundColor = "orange"; 
-		kollisionserkennung();
-	}
-	//Rechts
-	else if(event.keyCode == 39) {
-		document.getElementById(snake).style.backgroundColor = "green"; 
-		snake = snake + 1
-		document.getElementById(snake).style.backgroundColor = "orange"; 
-		kollisionserkennung();
-	}
-	//Runter
-	else if(event.keyCode == 40) {
-		document.getElementById(snake).style.backgroundColor = "green"; 
-		snake = snake + 10 
-		document.getElementById(snake).style.backgroundColor = "orange";
-		kollisionserkennung();
-	}
-}
-
-
-//neu
-//Variablen
-var apple;
-var snake;
-var score;
-var timer;
-var richtung;
-var aktuelle_Pos = snake;
-var ende = false;
-var tastenpruefung = false;
-
-//for-Schleife über alle Tabellenelemente: weiß machen
-
-// 3 Äpfel malen
-function drawApple(){
-apple = Math.floor(Math.random()*99);
-document.getElementById(apple).style.backgroundColor = "red";
-apple = Math.floor(Math.random()*99);
-document.getElementById(apple).style.backgroundColor = "red";
 apple = Math.floor(Math.random()*99);
 document.getElementById(apple).style.backgroundColor = "red";
 }
@@ -111,12 +28,11 @@ return snake;
 
 //Spielstart
 function start(){
+drawScore();{	
 drawApple();
 drawSnake();
 }
-
-// Tasten abfragen und Schlange steuern
-
+}
 
 // Schlange : aktuelle Position, Richtung, score
 
@@ -151,7 +67,7 @@ ende = true;
 }
 else if (feldfarbe = "red") {
 //scoreup und feld färben und timer setzen.
-score++;
+drawScore(score++);
 document.getElementById(position).style.backgroundColor = "orange";
 //timer
 }

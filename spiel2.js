@@ -9,6 +9,7 @@ var ende = false;
 var tastenpruefung = false;
 var richtung_neu = "rechts";
 var Zeit;
+
 //Spielstand anzeigen
 function drawScore() {
 	document.getElementById('score').innerHTML = "Spielstand: " + score; 
@@ -46,8 +47,7 @@ function start(){
 	drawSnake();
 	timer[0]=1;
 	drawApple();
-	//Zeitintervall basteln
-	// Zeitintervalle programmieren: http://www.mediaevent.de/javascript/animation.html
+	//Zeitintervall 
 	Zeit = setInterval(aktualisierung, 1000);
 }
 
@@ -60,7 +60,6 @@ function aktualisierung () {
 // Schlange : aktuelle Position, Richtung, score
 
 function kopf () {
-	//document.getElementById(aktuelle_Pos).style.backgroundColor = "orange";
 	//Bewegung nach Richtung -> Positionsverschiebung in aktuelle Richtung
 	if (richtung != richtung_neu) {
 		richtung = richtung_neu;
@@ -126,9 +125,7 @@ function ueberpruefen () {
 			}
 			else {
 				// feld färben und timer setzen.
-				//alert("Feld " + i + "Cur Color = " + feldfarbe + ", neue Farbe = orange");
 				document.getElementById(aktuelle_Pos).style.backgroundColor = "orange";
-				//alert("Feld " + i + "set to " + document.getElementById(aktuelle_Pos).style.backgroundColor);
 				//timer
 				timer[i] = score;
 			}
@@ -145,39 +142,24 @@ function ueberpruefen () {
 	}
 }
 
-//Variablen für Tastensteuerung: http://florianherlings.de/artikel/tastendruck_mit_javascript_abfangen
+//Variablen für Tastensteuerung
 
 document.onkeydown = function tastendruck (event) {
 	if (event.keyCode == 37) {
-		//while (!onkeydown) {
-			//document.getElementById(snake).style.backgroundColor = "green";
-			//snake = snake -1;
 			richtung_neu = "links";
 			event.returnValue = false;
-			//document.getElementById(snake).style.backgroundColor = "orange";
-		//}
 	}
 	else if(event.keyCode == 38) {
-		//document.getElementById(snake).style.backgroundColor = "green";
-		//snake = snake - 10;
 		richtung_neu = "hoch";
 		event.returnValue = false;
-		//document.getElementById(snake).style.backgroundColor = "orange";
 	}
 	else if(event.keyCode == 39) {
-		//document.getElementById(snake).style.backgroundColor = "green";
-		//snake = snake + 1;
 		richtung_neu = "rechts";
 		event.returnValue = false;
-		//document.getElementById(snake).style.backgroundColor = "orange";
 	}
 	else if(event.keyCode == 40) {
-		//document.getElementById(snake).style.backgroundColor = "green";
-		//snake = snake + 10;
 		richtung_neu = "unten";
 		event.returnValue = false;
-		//document.getElementById(snake).style.backgroundColor = "orange";
 	}
 	return event.returnValue;
 }
-
